@@ -1,7 +1,7 @@
 site_name: Algorithms App
 site_author: Nicholas Mendez
 site_favicon: assets/images/favicon.ico
-site_url:
+site_url: https://algorithms-90a10.firebaseapp.com
 
 theme: 'material'
 
@@ -32,8 +32,8 @@ extra:
     primary: 'teal'
     accent: 'amber'
   feature:
-    tabs: true
+    tabs: false
 
 ## Repository
-#repo_name: GitHub
-#repo_url: https://github.com/Snickdx/staffmanual
+repo_name: Algo-Reference
+repo_url: https://github.com/Snickdx/algo-reference
