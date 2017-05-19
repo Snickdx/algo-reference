@@ -1,0 +1,35 @@
+{
+  "name": "staff",
+  "version": "1.0.0",
+  "description": "Support Staff Manual PWA",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "path": "^0.12.7",
+    "run-sequence": "^1.2.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-inject-string": "^1.1.0",
+    "gulp-shell": "^0.5.2",
+    "gulp-template": "^4.0.0",
+    "gulp-text-simple": "^0.4.0",
+    "sw-precache": "^4.2.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Snickdx/staffmanual.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Snickdx/staffmanual/issues"
+  },
+  "homepage": "https://github.com/Snickdx/staffmanual#readme"
+}
