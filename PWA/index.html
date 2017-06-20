@@ -1,10 +1,9 @@
 
-        <meta charset="utf-8">
+        <!--<meta charset="utf-8">-->
         <meta name="description" content="<%= description %>">
         <meta name="theme-color" content="<%= theme_color %>">
-        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 
-        <!--ANDROID-->``
+        <!--ANDROID-->
         <meta name="mobile-web-app-capable" content="yes">
         <link rel="icon" sizes="192x192" href="<%= img_192 %>">
         <link rel="icon" sizes="120x120" href="<%= img_120 %>">
@@ -24,7 +23,7 @@
         <meta name="msapplication-navbutton-color" content="<%= theme_color %>">
 		
 		<!-- WEB -->
-		<link rel="shortcut icon" href="<%= favicon %>" type="image/x-icon">
+		<!--<link rel="shortcut icon" href="<%= favicon %>" type="image/x-icon">-->
         <link rel="icon" href="<%= favicon %>" type="image/x-icon">
         <link rel="icon" sizes="192x192" href="<%= img_192 %>">
 
@@ -34,7 +33,7 @@
             'use strict';
 
             if ('serviceWorker' in navigator) {
-	            navigator.serviceWorker.register('service-worker.js', {scope: '/'})
+	            navigator.serviceWorker.register('service-worker.js')
 		            .then(function(reg) {
 			            console.log('Registration succeeded. Scope is ' + reg.scope);
 		            }).catch(function(error) {
