@@ -20,9 +20,10 @@ mkdocs serve
 ```
 
 ## DEPLOYMENT
-Go to root of project and run
+Go to root of project and run.
+Just edit the markdown files to add content.
 ``` sh
 gulp build-site
-firebase serve
+firebase deploy
 ```
 gulp build site would compile the mkdocs site and inject the required PWA files

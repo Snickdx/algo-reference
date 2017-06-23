@@ -7,6 +7,8 @@
     "doc": "docs"
   },
   "dependencies": {
+    "firebase-tools": "^3.9.1",
+    "g": "^2.0.1",
     "gulp": "^3.9.1",
     "path": "^0.12.7",
     "run-sequence": "^1.2.2"

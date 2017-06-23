@@ -3,6 +3,7 @@
 	"short_name": "Algorithms",
 	"start_url": "index.html",
 	"display": "standalone",
+	"scope": "/",
 	"background_color": "#eeeeee",
 	"theme_color": "#009688",
 	"icons": [
