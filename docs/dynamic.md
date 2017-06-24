@@ -22,7 +22,7 @@ The dynamic programming approach would start by simplifying the problem as much 
 |--------|-|-|-|-|-|-|-|-|-|-|-|-|-|
 | 1¢ only|0|1|2|3|4|5|6|7|8|9|10|11|12|
 
-Then we add another level, knowing the solution for only 1¢ coins, what if we had 1¢ and 5¢ coins? For each solution with only 1¢ coins let's see if there exist a
+Then we add another level, every level introduces a new coin value to consider. Knowing the solution for only 1¢ coins, what if we had 1¢ and 5¢ coins? For each solution with only 1¢ coins let's see if there exist a
 better solution if we include a 5¢ coins where applicable.
 
 | Value  |0|1|2|3|4|5|6|7|8|9|10|11|12|
@@ -49,18 +49,20 @@ solution hence overcoming the caveats of the greedy approach.
 
 ### Algorithm
 
-The amount of coins needed for amount j at level i is determined in 3 cases:
+The amount of coins needed for amount j at level i is determined in 4 cases:
 
-1. 0 if i or j is 0
-2. The number of coins in the previous level if the new coin value is more than the amount j.
-3. 1 + num coins for the amount after subtracting the new coin value.
+1. 0 if j is 0 (amount to make is 0 so we do not need any coins)
+2. \(\infty\) if i is 0 ( no coins to choose from so we use infinity to indicate that is not possible to make the amount.)
+3. The number of coins in the previous level if the new coin value is more than the amount j.
+4. The smaller between 1 + num coins to make the amount minus the new coin value and the solution in the previous level, if the new coin value is less than the amount.
 
 Let's model the algorithm mathematically. Let's have a 2 dimensional matrix C, each element would have two coordinates associated with it, the vertical axis
 represents the level (1¢ only , 1¢ & 5¢, 1¢, 5¢ & 7¢) while the horizontal axis represents the amount (0 - 12) just like the table above. Therefore the value in C at level i
 for amount j is given by:
 
 \[ C[i][j] = \begin{cases}
-      0 & i, j\leq 0 \\
+      0 & j = 0 \\
+      \infty & i = 0 \\
       C[i-1][j] &  j \lt V[i] \\
       min(C[i-1][j], 1 + C[i][j - V[i]]) & V[i] \leq j
    \end{cases}
@@ -73,20 +75,33 @@ for amount j is given by:
 Below is some python code that will fill out the matrix.
 
 ``` python
-def fill_table():
-    num_denom = 3
-    max_amt = 12
+def min(A, B):
+	if A < B:
+		return A
+	return B
+
+def fill_table(C, num_denom, max_amt):
+
+    V = [0, 1, 5, 7]
 
     for i in range(0, num_denom):
         for j in range(0, max_amt):
-            if i == 0 or j == 0:
-                C[i][j] = 0
-            elif j < V[i]:
+            if i == 0:
+                C[i][j] = 9999
+            elif j == 0:
+            	C[i][j] = 0
+            elif V[i] > j:
                 C[i][j] = C[i-1][j]
             else:
                 C[i][j] = min(C[i-1][j], 1 + C[i][j - V[i]])
 
 
+if __name__ == "__main__":
+    num_denom = 4
+    max_amt = 12
+    C = [[0 for x in range(max_amt)] for y in range(num_denom)]
+    fill_table(C, num_denom, max_amt)
+    print(C)
 
 
 ```

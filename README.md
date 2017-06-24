@@ -13,17 +13,20 @@ sudo pip install mkdocs-material
 npm install
 ```
 
-## RUN PROJECT
+## Development
 Go to root of project and run
 ``` sh
 mkdocs serve
 ```
+This will setup a live reload server to show your edits in the browser.
+Edit the corresponding markdown files for the chapter you wish to contribute to.
+
 
 ## DEPLOYMENT
 Go to root of project and run.
-Just edit the markdown files to add content.
 ``` sh
 gulp build-site
 firebase deploy
 ```
 gulp build site would compile the mkdocs site and inject the required PWA files
+firebase deploy will deploy it to https://algorithms-90a10.firebaseapp.com/dynamic/
