@@ -6,6 +6,8 @@ until the solution of the original problem is achieved.
     problems are classed as optimization problems where there are many solutions but the goal is to find the 'best' one.
 
 ## Coin Change
+
+### Problem
 The problem is given coins of different values, make change for different amounts while minimizing the amount of coins used.
 For example given 1¢, 5¢, and 7¢ coins, determine the minimum amount of coins needed to make amounts for 0 to 12.
 
@@ -15,6 +17,8 @@ For example given 1¢, 5¢, and 7¢ coins, determine the minimum amount of coins
 
     example: to make 10¢ the greedy technique would select  1 7¢ coin then 3 1¢ coins but a better answer would be 2 5¢ coins. The greedy approach would stop after finding
     its first soltuion regardless of a better one existing.
+
+### Solution
 
 The dynamic programming approach would start by simplifying the problem as much as possible. What if you only had 1¢ coins? Then the solution is easy, we need n amount of 1¢ coins to make n¢.
 
@@ -107,6 +111,48 @@ if __name__ == "__main__":
 ```
 
 ## 0-1 Knapsack
+
+### Problem
+
+You have a knapsack which can carry a limited weight and several items, each with a weight and value. You want to make the best selection of the items to maximize the total value
+while still adhering to the sack's weight limit. For example the weight and value of three items are as follows; item 1 (1, 4), item 2 (2, 5), item 3 (4, 8) and item 4 (5, 10) and a max weight of 12.
+
+### Solution
+
+Simplify the problem; for different knapsack capacities (0 - 12) what is our total value if we only have item 1 available for selection?
+
+| Value      |0|1|2|3|4|5|6|7|8|9|10|11|12|
+|------------|-|-|-|-|-|-|-|-|-|-|-|-|-|
+| item 1 only|0|4|4|4|4|4|4|4|4|4|4|4|4|
+
+Include item 2 if there's space for it.
+
+| Value      |0|1|2|3|4|5|6|7|8|9|10|11|12|
+|------------|-|-|-|-|-|-|-|-|-|-|-|-|-|
+| item 1 only|0|4|4|4|4|4|4|4|4|4|4|4|4|
+| items 1,2  |0|4|4|4|9|9|9|9|9|9|9|9|9|
+
+From 3 onwards we have space for both items so they are both selected to give a total value of 9. Now for the next level;
+
+!!! Note
+    Unlike coins we have just one of each item, therefore when finding the total value for a new item we add its value with the total value in the **previous row** for the remaining space.
+    Eg in column 4 we compare the total value 4 in the previous row with a new total value which we can achieve if we include item 2. This new total value =
+    value of the new item (5) + total value 4 columns (weight of new item) to the left in the previous row (4) =  9.
+
+
+Then we do the same for the next 2 items.
+
+
+| Value           |0|1|2|3|4|5|6|7|8 |9 |10|11|12|
+|------------     |-|-|-|-|-|- |- |- |- |- |- |- |- |
+| item 1 only     |0|4|4|4|4|4 |4 |4 |4 |4 |4 |4 |4 |
+| items 1, 2      |0|4|5|9|9|9 |9 |9 |9 |9 |9 |9 |9 |
+| items 1, 2, 3   |0|4|5|9|9|12|13|17|17|17|17|17|17|
+| items 1, 2, 3, 4|0|4|5|9|9|12|14|17|19|19|22|23|27|
+
+
+
+
 
 ## Knapsack With Replacements
 
