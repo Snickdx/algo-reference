@@ -1,0 +1,15 @@
+{
+	"img_36": "assets/images/android-icon-36x36.png",
+	"img_120": "assets/images/apple-icon-120x120.png",
+	"img_192": "assets/images/android-icon-192x192.png",
+	"title": "Algorithms App",
+	"name": "Algorithms App",
+	"short_name": "Algorithms App",
+	"start_url": "index.html",
+	"scope": ".",
+	"description": "Algorithms Reference",
+	"favicon": "assets/images/favicon.ico",
+	"background_color": "#009688",
+	"manifest": "manifest.json",
+	"theme_color": "#009688"
+}

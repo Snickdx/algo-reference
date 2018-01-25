@@ -20,7 +20,6 @@ markdown_extensions:
   - admonition
   - codehilite(guess_lang=false)
   - toc(permalink=true)
-  - mdx_math
   - pymdownx.arithmatex
   - pymdownx.betterem(smart_enable=all)
   - pymdownx.caret
@@ -52,6 +51,8 @@ extra:
 
 extra_javascript:
     - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+    - 'js/register.js'
+
 
 extra_css:
     - assets/stylesheets/extra.css
